@@ -10,6 +10,9 @@ const port = process.env.PORT || 4000;
 // Habilitando pug
 app.set('view engine', 'pug');
 
+// Definir la carpert publica
+app.use(express.static('public'));
+
 // Agregar router
 app.use('/', router);
 
