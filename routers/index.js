@@ -7,11 +7,10 @@ router.get('/', (req, res) => { // req lo que enviamos : res lo que express nos 
 });
 
 router.get('/nosotros', (req, res) => { // req lo que enviamos : res lo que express nos responde
-  res.send('nosotros')
+  res.render('../views/nosotros.pug', {
+    pagina: 'Nosotros'
+  })
 });
 
-router.get('/testimoniales', (req, res) => { // req lo que enviamos : res lo que express nos responde
-  res.send('testimoniales')
-});
 
 export default router;
