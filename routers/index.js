@@ -4,12 +4,15 @@ import {
   paginaNosotros,
   paginaViajes,
   paginaDetalleViaje,
-  paginaTestimoniales
+  paginaTestimoniales,
+  paginaInicio
 } from '../controllers/paginasController.js'
 
 import { guardarTestimonial } from '../controllers/testimonialController.js'
 
 const router = express.Router();
+
+router.get('/', paginaInicio);
 
 router.get('/nosotros', paginaNosotros);
 
