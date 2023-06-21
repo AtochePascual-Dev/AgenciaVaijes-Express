@@ -38,8 +38,21 @@ const paginaDetalleViaje = async (req, res) => { // req lo que enviamos : res lo
 
 }
 
+const paginaTestimoniales = async (req, res) => { // req lo que enviamos : res lo que express nos responde
+
+  // Consultamos los viajes en la BD
+  try {
+    res.render('../views/testimoniales.pug', {
+      pagina: 'Testimoniales',
+    })
+  } catch (error) {
+    console.log(error);
+  }
+}
+
 export {
   paginaNosotros,
   paginaViajes,
   paginaDetalleViaje,
+  paginaTestimoniales
 }
