@@ -19,10 +19,27 @@ const paginaViajes = async (req, res) => { // req lo que enviamos : res lo que e
   } catch (error) {
     console.log(error);
   }
+}
+
+const paginaDetalleViaje = async (req, res) => { // req lo que enviamos : res lo que express nos responde
+
+  const { slug } = req.params;
+
+  try {
+    const viaje = await Viaje.findOne({ where: { slug } });
+
+    res.render('../views/viaje.pug', {
+      pagina: 'Información Viaje',
+      viaje
+    })
+  } catch (error) {
+    console.log(error);
+  }
 
 }
 
 export {
   paginaNosotros,
   paginaViajes,
+  paginaDetalleViaje,
 }
