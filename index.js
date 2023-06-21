@@ -25,6 +25,9 @@ app.use((req, res, next) => {
   next();
 });
 
+// Agregar body parcel para leer los datos del formulario
+app.use(express.urlencoded({ extended: true }));
+
 // Definir la carpert publica
 app.use(express.static('public'));
 
