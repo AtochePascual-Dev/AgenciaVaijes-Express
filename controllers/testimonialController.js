@@ -19,13 +19,22 @@ const guardarTestimonial = async (req, res) => { // req lo que enviamos : res lo
 
   // Sí, existen errores
   if (errores.length > 0) {
-    res.render('../views/testimoniales.pug', {
-      pagina: 'Testimoniales',
-      errores,
-      nombre,
-      correo,
-      mensaje
-    })
+
+    try {
+      // Consultamos los viajes en la BD
+      const testimoniales = await Testimonial.findAll();
+
+      res.render('../views/testimoniales.pug', {
+        pagina: 'Testimoniales',
+        errores,
+        nombre,
+        correo,
+        mensaje,
+        testimoniales
+      })
+    } catch (error) {
+      console.log(error);
+    }
   } else {
     // Almacenar en la BD
     try {
